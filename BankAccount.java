@@ -12,7 +12,7 @@ public class BankAccount extends Object {
 	
 	public BankAccount (){
 		this.accountId=  UUID.randomUUID().toString();
-		status = AccountStatus.BLOCKED;
+		status = AccountStatus.CREATED;
 	
 	}
 	public BankAccount(String currency ,double balanceinit){
@@ -57,11 +57,17 @@ public class BankAccount extends Object {
     }
 
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
 
-	} 
+	public String toString() {
+			return "BankAccount{" +
+			"accountId" + accountId + '\'' +
+			",balance =" + balance +
+			", currency =" +currency + '\'' +
+			",status=" + status +
+
+			'}';
+		} 
+	
 	@Override
 	public int hashCode() {
 		return Objects.hashCode(this.accountId) +
