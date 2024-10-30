@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.UUID;
 
 public class BankAccount extends Object {
@@ -11,7 +12,7 @@ public class BankAccount extends Object {
 	
 	public BankAccount (){
 		this.accountId=  UUID.randomUUID().toString();
-		status = AccountStatus.CREATED;
+		status = AccountStatus.BLOCKED;
 	
 	}
 	public BankAccount(String currency ,double balanceinit){
@@ -38,14 +39,13 @@ public class BankAccount extends Object {
 		this.balance = balance;
 	}
 	
-	
 	public  String getcurrency(){
 	
 		return currency;
 	}
 	public void  setcurrency(String currency){
 	
-		this.currency = currency;
+		 this.currency=currency;
 	}
 	
 	public AccountStatus getStatus() {
@@ -55,10 +55,19 @@ public class BankAccount extends Object {
     public void setStatus(AccountStatus status) {
         this.status = status;
     }
-	Public String toString(){
-		return "BankAccount {" +
-		"accountId= "+accountId +
-		"balance ="+balance +
-	 '}'
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+
+	} 
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(this.accountId) +
+				Objects.hashCode(this.balance)  +
+				Objects.hashCode(this.currency) +
+				Objects.hashCode(this.status) ;
+
 	}
 }
