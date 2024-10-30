@@ -1,17 +1,23 @@
+import java.util.UUID;
 
+public class BankAccount extends Object {
 
-public class BankAccount{
 	private String accountId;
 	private double balance;
 	private String currency;
-	private String status;
+	private AccountStatus status;
 	
 	
 	
 	public BankAccount (){
-		
-		status = "CREATED";
+		this.accountId=  UUID.randomUUID().toString();
+		status = AccountStatus.CREATED;
 	
+	}
+	public BankAccount(String currency ,double balanceinit){
+		this();
+		this.currency = currency;
+		this.balance = balanceinit;
 	}
 	public  String getaccountId(){
 	
@@ -42,11 +48,17 @@ public class BankAccount{
 		this.currency = currency;
 	}
 	
-	public String getStatus() {
+	public AccountStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(AccountStatus status) {
         this.status = status;
     }
+	Public String toString(){
+		return "BankAccount {" +
+		"accountId= "+accountId +
+		"balance ="+balance +
+	 '}'
+	}
 }
